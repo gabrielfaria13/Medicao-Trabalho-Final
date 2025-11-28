@@ -198,5 +198,312 @@ Experimento acadêmico conduzido por único pesquisador com experiência interme
 - Problemas críticos na aplicação demo não resolvíveis
 - Restrições de tempo que impossibilitem coleta mínima de dados
 
+## 7. Modelo Conceitual e Hipóteses
+
+### 7.1 Modelo Conceitual do Experimento
+
+O modelo conceitual proposto estabelece que as diferenças arquiteturais entre Selenium WebDriver (arquitetura cliente-servidor) e Cypress (arquitetura única em Node.js) resultam em impactos significativos em quatro dimensões principais de avaliação:
+
+```mermaid
+graph TD
+    A[Ferramenta de Automação] --> B[Selenium WebDriver]
+    A --> C[Cypress]
+    
+    B --> D[Arquitetura Cliente-Servidor]
+    C --> E[Arquitetura Node.js Integrada]
+    
+    D --> F[Variáveis Dependentes]
+    E --> F
+    
+    F --> G[Eficiência Desenvolvimento]
+    F --> H[Desempenho Execução]
+    F --> I[Confiabilidade Testes]
+    F --> J[Usabilidade]
+```
+
+### 7.2 Hipóteses Formais (H0, H1)
+
+| Hipótese | Nulo (H0) | Alternativo (H1) | Direção |
+|----------|-----------|------------------|---------|
+| **H1** | Não há diferença no tempo de desenvolvimento entre as ferramentas | Cypress requer menos tempo de desenvolvimento que Selenium | Unicaudal |
+| **H2** | Não há diferença no tempo de execução dos testes | Cypress executa testes mais rapidamente que Selenium | Unicaudal |
+| **H3** | Não há diferença na estabilidade dos testes | Selenium produz testes mais estáveis que Cypress | Unicaudal |
+| **H4** | Não há diferença na usabilidade percebida | Cypress possui melhor usabilidade que Selenium | Unicaudal |
+
+### 7.3 Nível de Significância e Considerações de Poder
+- **Nível de significância (α):** 0.05
+- **Poder estatístico (1-β):** 80% (mínimo)
+- **Tamanho de efeito considerado relevante:** d = 0.8 (grande efeito)
+- **Justificativa:** Considerando a natureza exploratória do estudo e restrições de amostra, optou-se por detectar apenas efeitos grandes.
+
+## 8. Variáveis, Fatores, Tratamentos e Objetos de Estudo
+
+### 8.1 Objetos de Estudo
+- **Aplicação Web:** Sauce Demo (https://www.saucedemo.com/)
+- **Scripts de Teste:** 5 casos de teste funcionais (login, navegação, adição ao carrinho, checkout, logout)
+- **Ambiente:** Windows 11, Node.js 18+, Chrome 119+
+
+### 8.2 Sujeitos / Participantes (Visão Geral)
+- **Perfil:** Desenvolvedor full-stack com experiência intermediária
+- **Quantidade:** 1 pesquisador (estudo piloto)
+- **Experiência:** 2+ anos em desenvolvimento web, conhecimentos básicos em ambas ferramentas
+
+### 8.3 Tabela de Variáveis Independentes (Fatores) e Seus Níveis
+
+| Fator | Níveis | Descrição |
+|-------|--------|-----------|
+| **Ferramenta de Automação** | Selenium WebDriver | Framework tradicional com arquitetura cliente-servidor |
+| | Cypress | Framework moderno com arquitetura integrada Node.js |
+| **Ordem de Aplicação** | Selenium → Cypress | Grupo A: Exposto primeiro ao Selenium |
+| | Cypress → Selenium | Grupo B: Exposto primeiro ao Cypress |
+
+### 8.4 Tabela de Tratamentos (Condições Experimentais)
+
+| Tratamento | Descrição | Combinações |
+|------------|-----------|-------------|
+| **Controle** | Selenium WebDriver com WebDriverIO | Ferramenta: Selenium<br>Binding: WebDriverIO<br>Linguagem: JavaScript |
+| **Experimental** | Cypress Framework | Ferramenta: Cypress<br>Versão: 13.6.0<br>Linguagem: JavaScript |
+
+### 8.5 Tabela de Variáveis Dependentes (Respostas)
+
+| Variável | Métrica | Descrição | Unidade |
+|----------|---------|-----------|---------|
+| **Tempo Desenvolvimento** | M1 | Tempo total para implementar testes | Horas |
+| **Velocidade Codificação** | M2 | Linhas de código por hora | LOC/hora |
+| **Tempo Execução** | M7 | Tempo total execução suite | Segundos |
+| **Uso CPU** | M9 | Percentual médio de uso da CPU | % |
+| **Taxa Sucesso** | M12 | Percentual de testes bem-sucedidos | % |
+| **Flaky Tests** | M13 | Número de testes inconsistentes | Quantidade |
+| **Facilidade Uso** | M18 | Pontuação em escala Likert | 1-5 |
+
+### 8.6 Variáveis de Controle / Bloqueio
+
+| Variável | Método de Controle | Justificativa |
+|----------|-------------------|---------------|
+| **Hardware** | Mesmo computador para todos testes | Eliminar variação de performance |
+| **Aplicação** | mesma versão Sauce Demo | Consistência do sistema sob teste |
+| **Navegador** | Chrome versão 119 | Eliminar variações entre browsers |
+| **Conhecimento Prévio** | Treinamento padronizado | Reduzir viés de aprendizado |
+
+### 8.7 Possíveis Variáveis de Confusão Conhecidas
+
+| Variável | Efeito Potencial | Estratégia de Mitigação |
+|----------|------------------|------------------------|
+| **Fadiga** | Pior performance no segundo tratamento | Contrabalanceamento da ordem |
+| **Learning Effect** | Melhora performance no segundo tratamento | Período de washout |
+| **Variações Ambiente** | Impacto nos tempos de execução | Múltiplas execuções |
+
+## 9. Desenho Experimental
+
+### 9.1 Tipo de Desenho
+**Desenho Intra-sujeitos com Medidas Repetidas e Contrabalanceamento**
+
+**Justificativa:** 
+- Maximiza poder estatístico com amostra pequena
+- Controla variabilidade entre sujeitos
+- Adequado para comparação direta de ferramentas
+
+### 9.2 Randomização e Alocação
+- **Randomização:** Ordem dos tratamentos randomizada por moeda
+- **Alocação:** Pesquisador único exposto a ambas condições
+- **Ferramenta:** Random.org para definição da sequência
+
+### 9.3 Balanceamento e Contrabalanço
+- **Balanceamento:** 1 sujeito em ambas condições
+- **Contrabalanço:** Ordem AB/BA randomizada
+- **Washout Period:** 48 horas entre tratamentos
+
+### 9.4 Número de Grupos e Sessões
+- **Grupos:** 1 grupo único
+- **Sessões:** 2 sessões principais (1 por ferramenta)
+- **Repetições:** 3 execuções por suite de testes
+- **Duração:** 5 horas por ferramenta (total 10 horas)
+
+---
+
+## 10. População, Sujeitos e Amostragem
+
+### 10.1 População-Alvo
+Desenvolvedores full-stack com experiência intermediária em desenvolvimento web (2-5 anos de experiência), trabalhando em projetos de pequeno e médio porte que utilizam JavaScript/TypeScript.
+
+### 10.2 Critérios de Inclusão de Sujeitos
+- Experiência com JavaScript/TypeScript (≥2 anos)
+- Conhecimento de testes manuais de software
+- Familiaridade com ferramentas de desenvolvimento web (Node.js, npm)
+- Disponibilidade para 10 horas de participação
+
+### 10.3 Critérios de Exclusão de Sujeitos
+- Experiência avançada (≥1 ano) em Selenium ou Cypress
+- Envolvimento prévio no desenvolvimento das ferramentas
+- Impossibilidade de completar todas as sessões experimentais
+
+### 10.4 Tamanho da Amostra Planejado
+- **Total:** 1 participante (estudo piloto)
+- **Por grupo:** 1 (desenho intra-sujeitos)
+- **Justificativa:** Restrições de tempo e recursos para TCC; foco em validar metodologia
+
+### 10.5 Método de Seleção / Recrutamento
+- **Tipo:** Amostra de conveniência
+- **Fonte:** Próprio pesquisador
+- **Processo:** Auto-recruitement com aplicação dos critérios de inclusão/exclusão
+
+### 10.6 Treinamento e Preparação dos Sujeitos
+- **Duração:** 1 hora por ferramenta
+- **Conteúdo:** Tutorial oficial básico + overview da arquitetura
+- **Material:** Documentação oficial + exemplos básicos
+- **Avaliação:** Implementação de 1 teste simples para verificação
+
+## 11. Instrumentação e Protocolo Operacional
+
+### 11.1 Instrumentos de Coleta
+
+| Instrumento | Descrição | Métricas Coletadas |
+|-------------|-----------|-------------------|
+| **Planilha Tempos** | Google Sheets para registro de tempos | M1, M2, M4, M7, M8 |
+| **Scripts Performance** | Comandos para monitorar recursos do sistema | M9, M10 |
+| **Relatórios Testes** | Saída dos frameworks de teste | M12, M13 |
+| **Questionário Usabilidade** | Formulário com escala Likert | M3, M5, M6, M14-23 |
+| **Logs Desenvolvimento** | Registro de problemas e insights | Dados qualitativos |
+
+### 11.2 Materiais de Suporte
+- **Instruções para Participantes:** Guia com objetivos e procedimentos
+- **Checklist de Configuração:** Ambiente de desenvolvimento
+- **Template Código:** Estrutura básica para ambos frameworks
+- **Formulário Consentimento:** Termo de participação voluntária
+
+### 11.3 Fluxograma do Protocolo Operacional
+
+```mermaid
+flowchart TD
+    A[Início do Experimento] --> B[Pré-Experimento]
+    
+    subgraph B [Pré-Experimento]
+        B1[Recrutamento e Triagem] --> B2[Treinamento Inicial]
+        B2 --> B3[Configuração Ambiente]
+        B3 --> B4[Randomização Ordem]
+    end
+    
+    B --> C{Ordem Definida}
+    C -->|Selenium Primeiro| D[Sessão Selenium]
+    C -->|Cypress Primeiro| E[Sessão Cypress]
+    
+    subgraph D [Sessão Selenium]
+        D1[Desenvolvimento Testes] --> D2[Coleta Métricas M1-M6]
+        D2 --> D3[Execução Testes 3x]
+        D3 --> D4[Coleta Métricas M7-M17]
+        D4 --> D5[Questionário Usabilidade]
+    end
+    
+    subgraph E [Sessão Cypress]
+        E1[Desenvolvimento Testes] --> E2[Coleta Métricas M1-M6]
+        E2 --> E3[Execução Testes 3x]
+        E3 --> E4[Coleta Métricas M7-M17]
+        E4 --> E5[Questionário Usabilidade]
+    end
+    
+    D --> F[Washout Period 48h]
+    E --> G[Washout Period 48h]
+    F --> E
+    G --> D
+    
+    D --> H[Pós-Experimento]
+    E --> H
+    
+    subgraph H [Pós-Experimento]
+        H1[Consolidação Dados] --> H2[Análise Estatística]
+        H2 --> H3[Entrevista Final]
+    end
+    
+    H --> I[Relatório Final]
+```
+
+### 11.4 Procedimento Experimental Detalhado
+
+**Fase 1 - Preparação (2 horas)**
+1. Configuração do ambiente de desenvolvimento
+2. Instalação de Selenium WebDriver + WebDriverIO
+3. Instalação do Cypress
+4. Clone da aplicação Sauce Demo
+5. Preenchimento do formulário de consentimento
+
+**Fase 2 - Execução por Ferramenta (5 horas cada)**
+1. **Desenvolvimento (3 horas):** Implementação dos 5 casos de teste
+   - Registro de tempo inicial e final
+   - Contagem de linhas de código
+   - Anotações de dificuldades encontradas
+2. **Execução (1 hora):** 3 execuções completas da suite
+   - Medição de tempos de execução
+   - Monitoramento de recursos do sistema
+   - Registro de falhas e inconsistências
+3. **Avaliação (1 hora):** Preenchimento do questionário de usabilidade
+
+**Fase 3 - Análise (3 horas)**
+1. Consolidação de todos os dados coletados
+2. Análise estatística preliminar
+3. Entrevista final de percepções
+
+### 11.5 Plano de Piloto
+- **Participantes:** 1 (próprio pesquisador)
+- **Objetivos:** Validar instrumentos, estimar tempos, identificar problemas
+- **Critérios de Ajuste:** 
+  - Se tempo desenvolvimento >6h: reduzir escopo de testes
+  - Se instabilidade aplicação: buscar alternativa
+  - Se problemas configuração: documentar solução
+
+## 12. Plano de Análise de Dados (Pré-Execução)
+
+### 12.1 Estratégia Geral de Análise
+Análise mista quantitativa-qualitativa, com foco em:
+- **Estatística descritiva** para caracterizar as métricas
+- **Testes inferenciais** para comparar as ferramentas
+- **Análise qualitativa** para compreender percepções
+
+### 12.2 Métodos Estatísticos Planejados
+
+| Questão | Métricas | Método Estatístico | Justificativa |
+|---------|----------|-------------------|---------------|
+| **Q1** Tempo Desenvolvimento | M1, M2 | Teste t pareado | Comparação direta entre ferramentas |
+| **Q2** Desempenho Execução | M7, M8 | ANOVA medidas repetidas | Múltiplas execuções |
+| **Q3** Confiabilidade | M12, M13 | Teste McNemar | Dados binários (sucesso/falha) |
+| **Q4** Usabilidade | M18-23 | Estatística descritiva | Dados ordinais escala Likert |
+
+### 12.3 Tratamento de Dados Faltantes e Outliers
+- **Dados faltantes:** Exclusão listwise para análise pareada
+- **Outliers:** Identificação com método IQR (1.5*IQR)
+- **Valores extremos:** Manutenção com justificativa documentada
+
+### 12.4 Plano de Análise para Dados Qualitativos
+- **Método:** Análise de conteúdo temática
+- **Processo:** Codificação aberta → categorização → temas emergentes
+- **Fontes:** Anotações de desenvolvimento, comentários questionários
+- **Software:** Excel/Google Sheets para organização
+
+## 13. Avaliação de Validade (Ameaças e Mitigação)
+
+### 13.1 Validade de Conclusão
+- **Ameaça:** Baixo poder estatístico (n=1)
+- **Mitigação:** Foco em tamanhos de efeito grandes e análise descritiva detalhada
+
+### 13.2 Validade Interna
+- **Ameaça:** Efeito de aprendizagem entre tratamentos
+- **Mitigação:** Contrabalanceamento e período de washout
+
+### 13.3 Validade de Constructo
+- **Ameaça:** Métricas não capturam completamente os constructs
+- **Mitigação:** Uso de múltiplas métricas por dimensão de avaliação
+
+### 13.4 Validade Externa
+- **Ameaça:** Generalização limitada (um participante)
+- **Mitigação:** Documentação detalhada do contexto para replicação futura
+
+### 13.5 Resumo das Principais Ameaças e Estratégias
+
+| Ameaça | Crítica | Estratégia Mitigação |
+|--------|---------|---------------------|
+| Tamanho amostra | Alta | Estudo como piloto para pesquisa futura |
+| Viés pesquisador | Média | Protocolo operacional rigoroso |
+| Instabilidade aplicação | Baixa | Múltiplas execuções e aplicação alternativa |
+| Efeito aprendizagem | Média | Contrabalanceamento e washout period |
+
 
 
