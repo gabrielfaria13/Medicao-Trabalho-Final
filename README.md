@@ -11,12 +11,13 @@ Avaliação comparativa de técnicas de testes automatizados (Selenium vs. Cypre
 EXP-TST-AUTO-001
 
 ## **1.3 Versão do Documento e Histórico de Revisão**
-v1.0 (23/11/2025) — Versão inicial.
-v1.1 (24/11/2025) — Adição de tabelas GQM e métricas detalhadas.
+- v1.0 (23/11/2025) — Versão inicial.
+- v1.1 (24/11/2025) — Adição de tabelas GQM e métricas detalhadas.
+- v1.2 (28/11/2025)-  Adição de modelo conceitual, variáveis, desenho experimental, população e sujeitos, instrumentação, protocolo operacional e plano de análise de dados.
 
 ## **1.4 Datas (criação, última atualização)**
 - Criação: 23/11/2025
-- Última atualização: 24/11/2025
+- Última atualização: 28/11/2025
 
 ## **1.5 Autores (nome, área, contato)**
 Gabriel Oliveira – Engenharia de Software – gabrielfoliveira@hotmail.com
