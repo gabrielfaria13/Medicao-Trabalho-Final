@@ -14,10 +14,11 @@ EXP-TST-AUTO-001
 - v1.0 (23/11/2025) — Versão inicial.
 - v1.1 (24/11/2025) — Adição de tabelas GQM e métricas detalhadas.
 - v1.2 (28/11/2025)-  Adição de modelo conceitual, variáveis, desenho experimental, população e sujeitos, instrumentação, protocolo operacional e plano de análise de dados.
+- v2.0 (12/12/2025) - Entrega Final
 
 ## **1.4 Datas (criação, última atualização)**
 - Criação: 23/11/2025
-- Última atualização: 28/11/2025
+- Última atualização: 12/12/2025
 
 ## **1.5 Autores (nome, área, contato)**
 Gabriel Oliveira – Engenharia de Software – gabrielfoliveira@hotmail.com
@@ -505,6 +506,162 @@ Análise mista quantitativa-qualitativa, com foco em:
 | Viés pesquisador | Média | Protocolo operacional rigoroso |
 | Instabilidade aplicação | Baixa | Múltiplas execuções e aplicação alternativa |
 | Efeito aprendizagem | Média | Contrabalanceamento e washout period |
+
+
+## 14. Ética, Privacidade e Conformidade
+
+### 14.1 Questões Éticas
+- **Auto-experimentação:** O pesquisador é também o sujeito do estudo, o que elimina questões de coerção.
+- **Transparência:** Todos os procedimentos e objetivos serão documentados abertamente.
+- **Risco mínimo:** O experimento não apresenta riscos físicos ou psicológicos significativos.
+
+### 14.2 Consentimento Informado
+- **Processo:** Auto-consentimento documentado através de formulário assinado digitalmente.
+- **Conteúdo:** Incluirá objetivos, procedimentos, riscos/benefícios, e garantia de que pode desistir a qualquer momento.
+- **Armazenamento:** Mantido em repositório seguro com acesso restrito.
+
+### 14.3 Privacidade e Proteção de Dados
+- **Dados coletados:** Tempos de desenvolvimento/execução, métricas de performance, respostas de questionário.
+- **Anonimização:** Não aplicável (auto-experimento).
+- **Armazenamento:** Dados em Google Sheets com acesso restrito ao pesquisador.
+- **Retenção:** Dados mantidos por 2 anos após conclusão do TCC.
+
+### 14.4 Aprovações Necessárias
+- **Comitê de Ética:** Não requerido para auto-experimentação acadêmica.
+- **Orientador:** Prof. Danilo de Quadros Maia Filho.
+- **Instituição:**  Pontifícia Universidade Católica (PUC) - conforme normas para trabalhos acadêmicos.
+- **Disciplina:** Medição e Experimentação em Engenharia de Software.
+
+## 15. Recursos, Infraestrutura e Orçamento
+
+### 15.1 Recursos Humanos e Papéis
+| Papel | Responsável | Responsabilidades |
+|-------|-------------|-------------------|
+| **Pesquisador Principal** | Gabriel Oliveira | Design, execução, análise, documentação |
+| **Orientador** | Prof. Danilo de Quadros Maia Filho | Revisão, orientação metodológica |
+
+### 15.2 Infraestrutura Técnica Necessária
+- Computador pessoal (Windows 11, 8GB RAM, SSD)
+- Conexão à Internet para download de dependências
+- Node.js 18+ instalado
+- Chrome Browser versão 119+
+- VS Code com extensões básicas
+
+### 15.3 Materiais e Insumos
+- Licenças: Todas ferramentas são open-source (gratuitas)
+- Formulários: Google Forms para questionários
+- Planilhas: Google Sheets para coleta de dados
+- Repositório: GitHub para versionamento
+
+### 15.4 Orçamento e Custos Estimados
+| Item | Custo Estimado | Justificativa |
+|------|---------------|---------------|
+| **Horas do pesquisador** | 40 horas (sem custo) | Atividade acadêmica |
+| **Infraestrutura** | R$ 0,00 | Uso de recursos pessoais |
+| **Ferramentas** | R$ 0,00 | Software open-source |
+| **Total** | **R$ 0,00** | - |
+
+## 16. Cronograma, Marcos e Riscos Operacionais
+
+### 16.1 Macrocronograma
+| Atividade | Semana 1 | Semana 2 | Semana 3 | Semana 4 |
+|-----------|----------|----------|----------|----------|
+| **Planejamento** | ✓ | | | |
+| **Configuração Ambiente** | | ✓ | | |
+| **Piloto** | | ✓ | | |
+| **Execução Selenium** | | | ✓ | |
+| **Execução Cypress** | | | ✓ | ✓ |
+| **Análise Dados** | | | | ✓ |
+| **Documentação** | ✓ | ✓ | ✓ | ✓ |
+
+### 16.2 Dependências entre Atividades
+1. Configuração do ambiente → Pré-requisito para piloto
+2. Piloto concluído → Pré-requisito para execução principal
+3. Coleta de dados completa → Pré-requisito para análise
+
+### 16.3 Riscos Operacionais e Plano de Contingência
+| Risco | Probabilidade | Impacto | Ação de Contingência |
+|-------|--------------|---------|---------------------|
+| **Falha hardware** | Baixa | Alto | Backup em nuvem diário; usar computador alternativo |
+| **Problemas aplicação demo** | Média | Médio | Ter aplicação local de backup; usar mocks |
+| **Interrupções pessoais** | Média | Médio | Buffer de tempo no cronograma (20%) |
+| **Erros configuração** | Alta | Baixo | Documentar procedimentos; script de setup |
+
+## 17. Governança do Experimento
+
+### 17.1 Papéis e Responsabilidades Formais
+- **Decisor:** Gabriel Oliveira 
+- **Executor:** Gabriel Oliveira
+- **Revisor:** Danilo de Quadros Maia Filho
+- **Informado:** Colegas de classe, comunidade acadêmica da PUC
+
+### 17.2 Ritos de Acompanhamento
+- **Reuniões com orientador:** Semanais (30 minutos)
+- **Checkpoints:** Após piloto e após cada sessão experimental
+- **Revisão final:** Após análise completa dos dados
+
+### 17.3 Controle de Mudanças
+- **Proposta:** Documentada em issue no GitHub
+- **Análise:** Impacto no cronograma, recursos e validade
+- **Aprovação:** Pesquisador + Orientador
+- **Registro:** Atualização no histórico de versões
+
+## 18. Plano de Documentação e Reprodutibilidade
+
+### 18.1 Repositórios e Convenções
+- **Repositório principal:** GitHub (privado durante execução)
+- **Estrutura:** `/docs`, `/scripts`, `/data`, `/results`
+- **Convenção nomes:** `YYYY-MM-DD_descricao_tipo.ext`
+- **Versionamento:** Git com commits descritivos
+
+### 18.2 Templates e Artefatos Padrão
+- Template de plano de experimento (este documento)
+- Template de formulário de consentimento
+- Template de planilha de coleta de dados
+- Template de questionário de usabilidade
+
+### 18.3 Empacotamento para Replicação
+- **Pacote incluirá:** Scripts de setup, dados anonimizados, instruções passo a passo
+- **Documentação:** README detalhado com pré-requisitos e procedimentos
+- **Licença:** Creative Commons Attribution
+- **Disponibilização:** GitHub público após defesa do TCC
+
+## 19. Plano de Comunicação
+
+### 19.1 Públicos e Mensagens-chave
+| Público | Mensagem Principal | Canal | Frequência |
+|---------|-------------------|-------|-----------|
+| **Orientador(Prof. Danilo de Quadros Maia Filho)** | Progresso, problemas, resultados | Reunião, e-mail | Semanal |
+| **Colegas de classe** | Compartilhamento aprendizados | Sala de aula | Após conclusão |
+| **Comunidade acadêmica** | Resultados e metodologia | Publicação, GitHub | Final do projeto |
+
+### 19.2 Canais de Comunicação
+- **Interno:** E-mail, reuniões presenciais
+- **Externo:** GitHub, fóruns acadêmicos
+- **Documentação:** Relatório técnico, artigo
+
+### 19.3 Pontos de Comunicação Obrigatórios
+1. Início do experimento
+2. Conclusão da coleta de dados
+3. Resultados preliminares
+4. Conclusão e resultados finais
+
+## 20. Critérios de Prontidão para Execução
+
+### 20.1 Checklist de Prontidão
+- [ ] Plano de experimento aprovado pelo orientador
+- [ ] Ambiente de desenvolvimento configurado e testado
+- [ ] Instrumentos de coleta preparados (planilhas, questionários)
+- [ ] Piloto executado e ajustes incorporados
+- [ ] Consentimento informado assinado
+- [ ] Cronograma detalhado definido
+- [ ] Plano de backup de dados estabelecido
+
+### 20.2 Aprovações Finais
+- **Aprovador principal:** Prof. Danilo de Quadros Maia Filho
+- **Forma de registro:** E-mail
+- **Critério:** Checklist completo
+- **Data limite:** 13/12/2025
 
 
 
