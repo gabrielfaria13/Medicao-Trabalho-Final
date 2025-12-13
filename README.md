@@ -15,10 +15,11 @@ EXP-TST-AUTO-001
 - v1.1 (24/11/2025) — Adição de tabelas GQM e métricas detalhadas.
 - v1.2 (28/11/2025)-  Adição de modelo conceitual, variáveis, desenho experimental, população e sujeitos, instrumentação, protocolo operacional e plano de análise de dados.
 - v2.0 (12/12/2025) - Entrega Final
+- v2.1 (13/12/2025) - Versão Corrigida após a apresentação 
 
 ## **1.4 Datas (criação, última atualização)**
 - Criação: 23/11/2025
-- Última atualização: 12/12/2025
+- Última atualização: 13/12/2025
 
 ## **1.5 Autores (nome, área, contato)**
 Gabriel Oliveira – Engenharia de Software – gabrielfoliveira@hotmail.com
@@ -132,38 +133,61 @@ Analisar as ferramentas Selenium WebDriver e Cypress com o propósito de caracte
 | **M22** - Qualidade documentação | Clareza e completude da documentação | Pontos (1-5) |
 | **M23** - Exemplos práticos | Qualidade e quantidade de exemplos | Pontos (1-5) |
 
-## 4. Escopo e Contexto do Experimento
+# **4. Escopo e Contexto do Experimento**
 
-## 4.1 Escopo Funcional/de Processo
+## **4.1 Escopo funcional / de processo (incluído e excluído)**
+
 **Incluído:**
-- Testes das funcionalidades: Login, CRUD de produtos, carrinho de compras, checkout
-- Desenvolvimento de testes idênticos em ambas ferramentas
-- Coleta de todas as 23 métricas definidas
-- Análise qualitativa e quantitativa
+- Testes funcionais automatizados para: Login, CRUD de produtos, carrinho de compras, checkout.
+- Desenvolvimento de scripts de teste idênticos em Selenium WebDriver (com WebDriverIO) e Cypress.
+- Execução local dos testes em ambiente controlado (máquina única).
+- Coleta das 23 métricas definidas (tempo de desenvolvimento, execução, recursos, qualidade, usabilidade).
+- Análise quantitativa (estatística) e qualitativa (percepções do desenvolvedor).
 
 **Excluído:**
-- Testes de performance (carga/stress)
-- Testes de segurança
-- Testes cross-browser
-- Integração com CI/CD complexa
+- Testes de performance (carga, stress, endurance).
+- Testes de segurança (OWASP, vulnerabilidades).
+- Testes cross-browser (Firefox, Safari, Edge).
+- Testes em dispositivos móveis (responsive, native apps).
+- Integração avançada com CI/CD (Jenkins, GitLab CI, GitHub Actions).
+- Testes de acessibilidade (WCAG).
+- Análise de cobertura de código (code coverage).
 
-## 4.2 Contexto do Estudo
-Experimento acadêmico conduzido por único pesquisador com experiência intermediária em desenvolvimento web e conhecimentos básicos em ambas ferramentas, simulando cenário de adoção inicial em pequenas equipes.
+---
 
-## 4.3 Premissas
-- Aplicação web demo permanece estável durante experimento
-- Ambiente de desenvolvimento consistentemente configurado
-- Documentações oficiais são fontes confiáveis
+## **4.2 Contexto do estudo**
+- **Tipo:** Experimento acadêmico.
+- **Pesquisador:** Único, com perfil de desenvolvedor.
+- **Ambiente técnico:** Computador pessoal (Windows 11), Node.js, Chrome estável.
+- **Aplicação sob teste:** Sauce Demo (https://www.saucedemo.com/) - e-commerce demo padrão do setor.
+- **Simulação:** Cenário realista de adoção inicial de ferramenta de automação por pequena equipe.
 
-## 4.4 Restrições
-- Tempo máximo: 4 semanas
-- Recursos: 1 computador pessoal
-- Orçamento: zero (ferramentas open-source)
+---
 
-## 4.5 Limitações Previstas
-- Resultados limitados a aplicações web similares à demo
-- Percepções subjetivas de único pesquisador
-- Ambiente controlado pode não refletir ambientes corporativos
+## **4.3 Premissas**
+- A aplicação Sauce Demo permanecerá funcionalmente estável e acessível durante todo o período experimental.
+- As ferramentas Selenium WebDriver (versão 4.x) e Cypress (versão 13.x) estarão operacionais sem mudanças de API críticas.
+- O ambiente de desenvolvimento (Node.js, npm, VS Code) manterá compatibilidade.
+- A documentação oficial das ferramentas será suficiente para implementação dos testes.
+- O pesquisador manterá consistência nos procedimentos entre as duas condições experimentais.
+
+---
+
+## **4.4 Restrições**
+- **Tempo:** 4 semanas totais (preparação: 1 semana, execução: 2 semanas, análise: 1 semana).
+- **Recursos computacionais:** 1 computador pessoal (limitação para testes concorrentes).
+- **Orçamento:** Zero (utilização exclusiva de ferramentas open-source gratuitas).
+- **Acesso:** Apenas à aplicação web pública Sauce Demo (sem acesso a backend ou logs do servidor).
+- **Participantes:** Apenas o pesquisador (devido a escopo do experimento e recursos).
+
+---
+
+## **4.5 Limitações previstas**
+- **Validade externa:** Resultados aplicáveis principalmente a aplicações web de complexidade similar à Sauce Demo (CRUD básico, SPA simples).
+- **Generalização limitada:** Percepções baseadas em único pesquisador com perfil específico (intermediário, conhecimento prévio em JavaScript).
+- **Ambiente artificial:** Execução local não reflete totalmente ambientes corporativos com CI/CD, testes paralelos, múltiplos browsers.
+- **Evolução das ferramentas:** Conclusões válidas para as versões testadas (Selenium 4.x, Cypress 13.x) podem não se aplicar a versões futuras.
+- **Escopo funcional limitado:** Testes realizados não cobrem cenários complexos como upload de arquivos, drag-and-drop, testes de iframes.
 
 ## 5. Stakeholders e Impacto Esperado
 
@@ -480,32 +504,33 @@ Análise mista quantitativa-qualitativa, com foco em:
 - **Fontes:** Anotações de desenvolvimento, comentários questionários
 - **Software:** Excel/Google Sheets para organização
 
-## 13. Avaliação de Validade (Ameaças e Mitigação)
+# **13. Avaliação de Validade (Ameaças e Mitigação)**
 
-### 13.1 Validade de Conclusão
-- **Ameaça:** Baixo poder estatístico (n=1)
-- **Mitigação:** Foco em tamanhos de efeito grandes e análise descritiva detalhada
+### **13.1 Validade de Conclusão**
+- **Ameaça:** Com apenas um participante (n=1), análises estatísticas terão poder insuficiente para detectar diferenças pequenas ou moderadas entre as ferramentas.
+- **Mitigação:** Foco em **tamanhos de efeito grandes** (d > 0.8) clinicamente relevantes para decisão prática. Análise descritiva detalhada dos dados brutos (tempos absolutos, percentuais) complementará testes inferenciais. O experimento será tratado como **estudo piloto** que valida a metodologia para pesquisas futuras com mais participantes.
 
-### 13.2 Validade Interna
-- **Ameaça:** Efeito de aprendizagem entre tratamentos
-- **Mitigação:** Contrabalanceamento e período de washout
+### **13.2 Validade Interna**
+- **Ameaça:** **Efeito de aprendizagem específico por ferramenta** - conhecimento adquirido com Selenium (ex: lidar com waits explícitos) pode beneficiar desproporcionalmente o uso do Cypress (que tem abordagem diferente para assincronicidade), ou vice-versa, criando uma causa alternativa para diferenças observadas.
+- **Mitigação:** **Contrabalanceamento rigoroso** (ordem Selenium→Cypress vs Cypress→Selenium randomizada) e **período de washout de 48 horas** entre sessões para reduzir transferência de conhecimento específico. **Blindagem parcial** mantendo o pesquisador sem acesso a benchmarks prévios durante a fase de desenvolvimento.
 
-### 13.3 Validade de Constructo
-- **Ameaça:** Métricas não capturam completamente os constructs
-- **Mitigação:** Uso de múltiplas métricas por dimensão de avaliação
+### **13.3 Validade de Constructo**
+- **Ameaça:** **Incompatibilidade de constructs entre ferramentas** - "facilidade de uso" pode significar coisas diferentes em Selenium (configuração de drivers) vs Cypress (instalação via npm). Algumas métricas (ex: "linhas de código") podem não equivaler entre APIs com diferentes níveis de abstração.
+- **Mitigação:** **Triangulação de métricas** - cada constructo (ex: "eficiência") será medido por múltiplos indicadores (tempo de desenvolvimento + linhas de código + esforço cognitivo percebido). **Definições operacionais claras** adaptadas a cada ferramenta no protocolo.
 
-### 13.4 Validade Externa
-- **Ameaça:** Generalização limitada (um participante)
-- **Mitigação:** Documentação detalhada do contexto para replicação futura
+### **13.4 Validade Externa**
+- **Ameaça:** **Contexto excessivamente específico** - resultados podem não se generalizar para: aplicações web complexas (SPAs com heavy JavaScript), testes que envolvem múltiplos domínios/iframes, ou equipes com perfis de experiência diferentes (totalmente iniciantes ou especialistas).
+- **Mitigação:** **Documentação hiperdetalhada do contexto**: stack tecnológica exata, versões das ferramentas, perfil técnico do pesquisador, características da aplicação Sauce Demo. **Delimitação explícita** no relatório dos cenários onde os resultados são mais aplicáveis (pequenas/médias aplicações web com CRUD).
 
-### 13.5 Resumo das Principais Ameaças e Estratégias
+### **13.5 Resumo das Principais Ameaças e Estratégias**
 
-| Ameaça | Crítica | Estratégia Mitigação |
-|--------|---------|---------------------|
-| Tamanho amostra | Alta | Estudo como piloto para pesquisa futura |
-| Viés pesquisador | Média | Protocolo operacional rigoroso |
-| Instabilidade aplicação | Baixa | Múltiplas execuções e aplicação alternativa |
-| Efeito aprendizagem | Média | Contrabalanceamento e washout period |
+| Ameaça | Como se manifesta NO MEU EXPERIMENTO | Crítica | Estratégia de Mitigação ESPECÍFICA |
+|--------|--------------------------------------|---------|-------------------------------------|
+| **Tamanho amostral unitário** | Único participante (pesquisador) pode ter viés inconsciente ou experiência atípica | Alta | Tratar como **piloto metodológico**; coletar dados qualitativos ricos; documentar passo a passo para replicação com mais devs |
+| **Viés de familiaridade prévia** | Experiência anterior com testes manuais/web pode beneficiar uma arquitetura (ex: entender HTTP ajuda mais no Selenium) | Média | Mapear conhecimento prévio antes do experimento; usar contrabalanceamento; incluir métrica de "curva de aprendizado inicial" (M4) |
+| **Instabilidade do SUT** | Sauce Demo é aplicação externa; mudanças não controladas podem quebrar scripts entre sessões | Média | **Snapshot local** da aplicação; scripts com verificações de saúde antes de cada execução; plano B com aplicação dockerizada própria |
+| **Efeito de ordem com aprendizado assimétrico** | Aprender Selenium primeiro pode "estragar" a experiência com Cypress (ou vice-versa) ao criar expectativas irreais | Média | **Washout period** com atividade técnica não relacionada; questionário pós-sessão sobre expectativas; randomização da ordem |
+| **Generalização limitada** | Conclusões válidas apenas para apps similares à Sauce Demo (login+CRUD básico) | Média | **Especificação clara do domínio** testado; recomendação explícita de onde NÃO usar os resultados (ex: testes de performance) |
 
 
 ## 14. Ética, Privacidade e Conformidade
